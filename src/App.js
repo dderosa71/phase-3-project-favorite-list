@@ -15,17 +15,13 @@ function App() {
       fetch('http://localhost:9292/locations')
       .then(resp => resp.json())
       .then(json => {
-        console.log("true")
         setPlaces(json)
-        setLoading(true)
-
-      
+        setLoading(false)
       })
   },[]
   )
 
   const switchJSX = (  <Switch>
-   < Header/>
 
     <Route exact path="/location/:id/attractions/">
       <Attractions places={places}/>

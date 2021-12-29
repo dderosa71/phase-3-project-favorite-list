@@ -42,6 +42,7 @@ function Places({ places, setPlaces }) {
 
     return (
         <>
+        <h1>Oh, the Places You'll Go!</h1>
             {placesArray}
             <form>
                 <label>City</label>

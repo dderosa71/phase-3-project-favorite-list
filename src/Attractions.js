@@ -1,6 +1,6 @@
 import React from "react"
 import Attraction from "./Attraction.js"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import {useState} from "react"
 
@@ -40,11 +40,15 @@ function Attractions({ places }) {
   return (
     <>
       <h2>{location.state}, {location.city} - {location.country}</h2>
+      <Link to="/">
+           <Button variant="outline-primary" >Home</Button>
+      </Link>
       <table>
         <tr>
+          <th></th>
+          <th>Name</th>
           <th>Type</th>
-          <th>notes</th>
-          <th>Attractions</th>
+          <th>Notes</th>
         </tr>
         {attractionArray}
       </table>
