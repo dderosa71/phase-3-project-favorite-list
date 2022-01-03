@@ -1,11 +1,9 @@
 import './App.css';
-import Header from "./Header.js"
 import Places from "./Places.js"
 import Attractions from "./Attractions.js"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { ClimbingBoxLoader } from 'react-spinners';
-import react from 'react';
 
 function App() {
   const [places, setPlaces] = useState([]);

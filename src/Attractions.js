@@ -1,15 +1,15 @@
 import React from "react"
 import Attraction from "./Attraction.js"
+import AddAttraction from "./AddAttraction.js";
 import { useParams, Link } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import {useState} from "react"
 
-
 function Attractions({ places }) {
 
-  const [type, setType] = useState('')
-  const [notes, setNotes] = useState('')
-  const [attractionState, setAttraction] = useState('')
+  // const [type, setType] = useState('')
+  // const [notes, setNotes] = useState('')
+  // const [attractionState, setAttraction] = useState('')
   const slug = useParams()
   const slugId = parseInt(slug.id) - 1
   const location = places[slugId]
@@ -25,17 +25,7 @@ function Attractions({ places }) {
     />
   ))
 
-  // function handleSubmit(){
-  //   fetch('localhost:9292/', {
-  //     method: 'POST',
-  //     headers:{"Content-Type": "application/json"},
-  //     body: JSON.stringify({
-  //       "name": attractionState,
-  //       "attraction_type": type,
-  //       "notes": notes
-  //     })
-  //   })
-  // }
+
 
   return (
     <>
@@ -44,6 +34,7 @@ function Attractions({ places }) {
            <Button variant="outline-primary" >Home</Button>
       </Link>
       <table>
+      <tbody>
         <tr>
           <th></th>
           <th>Name</th>
@@ -51,10 +42,13 @@ function Attractions({ places }) {
           <th>Notes</th>
         </tr>
         {attractionArray}
+        </tbody>
       </table>
       <br></br>
-      <p>Add a New Attraction</p>
-      <form>
+      <h3>Add a New Attraction</h3>
+
+      <AddAttraction/>
+      {/* <form>
         <label>Type</label>
         <input onChange={(event) => setType(event.target.value)} value={type}></input>
         <br></br>
@@ -64,7 +58,7 @@ function Attractions({ places }) {
         <label>Attractions</label>
         <input onChange={(event) => setAttraction(event.target.value)} value={attractionState}></input>
       </form>
-      <Button variant="success" >Save</Button>
+      <Button variant="success" onClick={handleSubmit}>Save</Button> */}
 
     </>
   )

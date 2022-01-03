@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Location from "./Location"
 import Button from 'react-bootstrap/Button';
 
@@ -10,25 +10,25 @@ function Places({ places, setPlaces }) {
 
 
     function handleSave() {
-        const newItem = 
-        {"city": city,
-        "state": state,
-        "country": country,
-        "id": places[places.length-1]["id"]+1
-    
-    }
+        const newItem =
+        {
+            "city": city,
+            "state": state,
+            "country": country,
+            "id": places[places.length - 1]["id"] + 1
+
+        }
         fetch('http://localhost:9292/locations', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newItem)
         })
-
-        setPlaces((currentPlaces)=>[...currentPlaces, newItem ])
+        setPlaces((currentPlaces) => [...currentPlaces, newItem])
         setCity("")
         setState("")
         setCountry("")
     }
-    
+
     const placesArray = places.map(item => (
         <Location
             key={item.id}
@@ -42,8 +42,10 @@ function Places({ places, setPlaces }) {
 
     return (
         <>
-        <h1>Oh, the Places You'll Go!</h1>
+            <h1>Oh, the Places You'll Go!</h1>
             {placesArray}
+
+            <h2>Add a new place</h2>
             <form>
                 <label>City</label>
                 <input onChange={(event) => setCity(event.target.value)} value={city}></input>
@@ -54,6 +56,9 @@ function Places({ places, setPlaces }) {
                 <label>Country</label>
                 <input onChange={(event) => setCountry(event.target.value)} value={country}></input>
             </form>
+            <br></br>
+
+
             <Button variant="Success" onClick={handleSave}>Add</Button>
         </>
     )
