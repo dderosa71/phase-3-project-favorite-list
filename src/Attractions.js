@@ -12,7 +12,9 @@ function Attractions({ places }) {
   // const [attractionState, setAttraction] = useState('')
   const slug = useParams()
   const slugId = parseInt(slug.id) - 1
+  console.log(slugId)
   const location = places[slugId]
+  console.log(location)
   const attraction = location.attractions
   const attractionArray = attraction.map(item => (
     <Attraction
@@ -24,8 +26,6 @@ function Attractions({ places }) {
       id={item.id}
     />
   ))
-
-
 
   return (
     <>
@@ -47,7 +47,7 @@ function Attractions({ places }) {
       <br></br>
       <h3>Add a New Attraction</h3>
 
-      <AddAttraction/>
+      <AddAttraction location_id={slugId}/>
       {/* <form>
         <label>Type</label>
         <input onChange={(event) => setType(event.target.value)} value={type}></input>

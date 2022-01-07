@@ -15,7 +15,8 @@ function Places({ places, setPlaces }) {
             "city": city,
             "state": state,
             "country": country,
-            "id": places[places.length - 1]["id"] + 1
+            "id": places[places.length - 1]["id"] + 1,
+            "attractions":[]
 
         }
         fetch('http://localhost:9292/locations', {

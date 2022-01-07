@@ -2,15 +2,16 @@ import React from "react";
 import { useState } from "react"
 import Button from "react-bootstrap/Button";
 
-function AddAttraction() {
+function AddAttraction({location_id}) {
 
     function handleSubmit(){
         const newItem = {
           "name": attractionState,
           "attraction_type": type,
-          "notes": notes
+          "notes": notes,
+          "location_id": location_id+1
         }
-    
+        console.log("dom")
         fetch('http://localhost:9292/attractions', {
           method: 'POST',
           headers:{"Content-Type": "application/json"},
@@ -21,7 +22,7 @@ function AddAttraction() {
         // setNotes("")
         // setAttractions("")
       }
-      
+
     const [type, setType] = useState('')
     const [notes, setNotes] = useState('')
     const [attractionState, setAttraction] = useState('')
